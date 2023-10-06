@@ -1,0 +1,39 @@
+// 'number' will hold a random number in
+// the range [0, 99]
+const number = Math.floor(Math.random() * 100);
+
+// Declare 'flag' and initialize it to false.
+let flag = false;
+
+// Since we know that 1 is neither prime nor composite.
+if (number == 1) {
+   console.log(" 1 is neither prime nor composite");
+}
+
+// This is the condition we are concerned about
+// i.e. any positive number greater than 1.
+else if (number > 1) {
+   // Iterate from 2 to number/2.
+   for (let i = 2; i < number / 2; i++) {
+      // Check if 'i' divides 'number' without
+      // leaving the remainder
+      if (number % i == 0) {
+         // If yes, then set a flag to true
+         // and exit from the loop.
+         flag = true;
+         break;
+      }
+   }
+
+   // If the flag is found true, it means a divisor was found
+   // during the iteration.
+   if (flag == true) console.log(`${number} is not a prime number`);
+   // Otherwise, no divisor was found.
+   else console.log(`${number} is a prime number`);
+}
+
+// If the number is less than 1 (either 0 or negative)
+// then we can say it is not a prime number.
+else {
+   console.log(`${number} is not a prime number`);
+}
